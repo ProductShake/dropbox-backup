@@ -1,0 +1,52 @@
+{
+    "name": "productshake/backup",
+    "description": "Pre-configured Laravel backup solution with Dropbox integration",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Productshake, LLC",
+            "email": "hi@productshake.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ProductShake\\Backup\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-backup": "^9.0",
+        "spatie/flysystem-dropbox": "^3.0",
+        "laravel/slack-notification-channel": "^3.5",
+        "ext-zip": "*"
+    },
+    "require-dev": {
+        "composer/composer": "^2.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ProductShake\\Backup\\Providers\\BackupServiceProvider",
+                "ProductShake\\Backup\\Providers\\BackupConsoleProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-package-install": [
+            "ProductShake\\Backup\\Installer::postPackageInstall"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "keywords": [
+        "spatie",
+        "laravel",
+        "backup",
+        "dropbox",
+        "productshake"
+    ]
+}
