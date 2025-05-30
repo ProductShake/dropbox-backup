@@ -3,7 +3,6 @@
     "description": "Pre-configured Laravel backup solution with Dropbox integration",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.3",
     "authors": [
         {
             "name": "Productshake, LLC",
