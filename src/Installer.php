@@ -21,10 +21,11 @@ class Installer
     public static function postPackageInstall(Event $event): void
     {
         $io = $event->getIO();
-        $envFile = getcwd() . '/.env';
+        $envFile = getcwd().'/.env';
 
-        if (!file_exists($envFile)) {
+        if (! file_exists($envFile)) {
             $io->write('<error>.env file not found. Skipping environment configuration.</error>');
+
             return;
         }
 
@@ -33,7 +34,7 @@ class Installer
 
         foreach (self::ENV_CONFIGS as $key => $defaultValue) {
             // Skip if config already exists
-            if (str_contains($envContent, $key . '=')) {
+            if (str_contains($envContent, $key.'=')) {
                 continue;
             }
 
@@ -43,7 +44,7 @@ class Installer
             $addedConfigs[] = "{$key}={$value}";
         }
 
-        if (!empty($addedConfigs)) {
+        if (! empty($addedConfigs)) {
             // Add a section header
             $envContent .= "\n\n# ProductShake Backup Configuration\n";
             $envContent .= implode("\n", $addedConfigs);

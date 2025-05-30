@@ -42,7 +42,7 @@ return [
         'destination' => [
             'compression_method' => ZipArchive::CM_DEFAULT,
             'compression_level' => 9,
-            'filename_prefix' => env('BACKUP_PREFIX_NAME', 'backups') . '_',
+            'filename_prefix' => env('BACKUP_PREFIX_NAME', 'backups').'_',
             'disks' => [
                 'dropbox',
             ],
@@ -79,7 +79,7 @@ return [
             'webhook_url' => env('BACKUP_SLACK_WEBHOOK_URL'),
             'channel' => '#backups',
             'username' => 'Backup',
-            'icon' =>  ':robot_face:',
+            'icon' => ':robot_face:',
         ],
     ],
 
