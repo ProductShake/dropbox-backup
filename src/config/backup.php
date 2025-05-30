@@ -70,16 +70,16 @@ return [
         'mail' => [
             'to' => env('BACKUP_NOTIFICATION_EMAIL'),
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+                // 'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
                 'name' => env('MAIL_FROM_NAME', 'Example'),
             ],
         ],
 
         'slack' => [
             'webhook_url' => env('BACKUP_SLACK_WEBHOOK_URL'),
-            'channel' => null,
-            'username' => null,
-            'icon' => null,
+            'channel' => '#backups',
+            'username' => 'Backup',
+            'icon' =>  ':robot_face:',
         ],
     ],
 
