@@ -76,7 +76,7 @@ return [
         ],
 
         'slack' => [
-            'webhook_url' => env('BACKUP_SLACK_WEBHOOK_URL'),
+            'webhook_url' => env('HEALTH_SLACK_WEBHOOK_URL'),
             'channel' => '#backups',
             'username' => 'Backup',
             'icon' => ':robot_face:',
