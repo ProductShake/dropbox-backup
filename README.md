@@ -19,24 +19,33 @@ A pre-configured Laravel backup solution with Dropbox integration, built on top 
 
 ## Installation
 
-1. Install the package via Composer:
+1. Add the following environment variables to your `.env` file:
 ```bash
-composer require productshake/backup
+
+# REQUIRED ENVIRONMENT VARIABLES # 
+# MAKE SURE TO ADD THESE VARIABLES TO YOUR .env FILE BEFORE PROCEEDING #
+
+SLACK_BOT_USER_OAUTH_TOKEN=""                                                               # Required - for Slack notifications
+HEALTH_SLACK_WEBHOOK_URL="your_webhook_url"                                                 # Optional - for Slack notifications
+SLACK_BOT_USER_DEFAULT_CHANNEL="#general"
+
+BACKUP_DIRECTORY_NAME="backups"                                                             # Directory name in Dropbox
+BACKUP_PREFIX_NAME="your_site_name"                                                         # Prefix for backup files (e.g., "mysite")
+BACKUP_MYSQL_DUMP="/usr/bin/"                                                               # Path to MySQL dump binary
+  
+DROPBOX_KEY="your_key"                                                                      # Dropbox app key
+DROPBOX_SECRET="your_secret"                                                                # Dropbox app secret
+DROPBOX_AUTH_TOKEN="your_token"                                                             # Dropbox OAuth token
+DROPBOX_REFRESH_TOKEN="your_refresh_token"                                                  # Dropbox refresh token
+DROPBOX_TOKEN_URL="https://${DROPBOX_KEY}:${DROPBOX_SECRET}@api.dropbox.com/oauth2/token"
+
+BACKUP_NOTIFICATION_EMAIL=hi@productshake.com                                               # Optional - for email notifications
+
 ```
 
-2. Add the following environment variables to your `.env` file:
+2. Install the package via Composer:
 ```bash
-# Required
-BACKUP_PREFIX_NAME="your_site_name"          # Prefix for backup files (e.g., "mysite")
-BACKUP_DIRECTORY_NAME="backups"              # Directory name in Dropbox
-DROPBOX_AUTH_TOKEN="your_token"             # Dropbox OAuth token
-DROPBOX_SECRET="your_secret"                # Dropbox app secret
-DROPBOX_KEY="your_key"                      # Dropbox app key
-DROPBOX_TOKEN_URL="your_token_url"          # Dropbox token refresh URL
-DROPBOX_REFRESH_TOKEN="your_refresh_token"  # Dropbox refresh token
-
-# Optional - for Slack notifications
-BACKUP_SLACK_WEBHOOK_URL="your_webhook_url"
+composer require productshake/backup
 ```
 
 That's it! The package will automatically:
